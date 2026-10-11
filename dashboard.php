@@ -15,8 +15,9 @@ include 'includes/cek_session.php';
     <?php if ($_SESSION['role'] == 'admin') { ?>
         <li><a href="kelola_guru.php">Kelola Guru</a></li>
         <li><a href="kelola_siswa.php">Kelola Siswa</a></li>
-        <li><a href="menu3.php">Menu 3</a></li>
-        <li><a href="menu4.php">Menu 4</a></li>
+        <li><a href="kelola_kelas.php">Kelola Kelas</a></li>
+        <li><a href="kelola_tahun_ajaran.php">Kelola Tahun Ajaran</a></li>
+        <li><a href="kelola_wali_kelas.php">Kelola Wali Kelas</a></li>
     <?php } ?>
 
     <?php if ($_SESSION['role'] == 'guru') { ?>

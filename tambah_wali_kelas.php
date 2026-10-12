@@ -17,14 +17,14 @@ include 'includes/cek_session.php';
             <td>ID Guru</td>
             <td>:</td>
             <td>
-                <input type="number" name="id_guru" min="1" required>
+                <input type="number" name="guru_id" min="1" required>
             </td>
         </tr>
         <tr>
             <td>ID Kelas</td>
             <td>:</td>
             <td>
-                <input type="number" name="id_kelas" min="1" required>
+                <input type="number" name="kelas_id" min="1" required>
             </td>
         </tr>
         <tr>

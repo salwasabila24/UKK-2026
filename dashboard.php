@@ -47,6 +47,11 @@
                         Kelola Wali Kelas
                     </a>
                 </li>
+                li class="nav-item mb-2">
+                    <a href="penempatan_siswa.php" class="nav-link text-white">
+                        Penempatan Siswa
+                    </a>
+                </li>
                 <li class="nav-item mb-2">
                     <a href="kelola_pelanggaran_kategori.php" class="nav-link text-white">
                         Kelola Pelanggaran Kategori
@@ -151,6 +156,7 @@ include 'includes/cek_session.php';
         <li><a href="kelola_kelas.php">Kelola Kelas</a></li>
         <li><a href="kelola_tahun_ajaran.php">Kelola Tahun Ajaran</a></li>
         <li><a href="kelola_wali_kelas.php">Kelola Wali Kelas</a></li>
+        <li><a href="penempatan_siswa.php">Kelola Wali Kelas</a></li>
         <li><a href="kelola_pelanggaran_kategori.php">Kelola Pelanggaran Kategori</a></li>
     <?php } ?>
 

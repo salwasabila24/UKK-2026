@@ -31,7 +31,7 @@ include 'includes/cek_session.php';
             <td>Tahun Ajaran</td>
             <td>:</td>
             <td>
-                <input type="text" name="tahun_ajaran"
+                <input type="text" name="tahun_ajaran_id"
                        placeholder="Contoh: 2026/2027" required>
             </td>
         </tr>

@@ -1,10 +1,15 @@
 
 <?php
+<<<<<<< HEAD
 // edit_pelanggaran_kategori.php
+=======
+// proses_edit_pelanggaran_kategori.php
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
 
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
+<<<<<<< HEAD
 $id = $_GET['id'];
 
 $sql = "SELECT * FROM t_pelanggaran_kategori WHERE id = '$id'";
@@ -100,3 +105,29 @@ if (!$data) {
 
 </body>
 </html>
+=======
+$id = $_POST['id'];
+$nama = mysqli_real_escape_string($koneksi, $_POST['nama']);
+$deskripsi = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
+$status_aktif = $_POST['status_aktif'];
+
+$sql = "UPDATE t_pelanggaran_kategori SET
+        nama = '$nama',
+        deskripsi = '$deskripsi',
+        status_aktif = '$status_aktif',
+        updated_at = CURRENT_TIMESTAMP
+        WHERE id = '$id'";
+
+if (mysqli_query($koneksi, $sql)) {
+
+    header("Location: kelola_pelanggaran_kategori.php");
+    exit;
+
+} else {
+
+    echo "Gagal mengubah data kategori pelanggaran: "
+         . mysqli_error($koneksi);
+
+}
+?>
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223

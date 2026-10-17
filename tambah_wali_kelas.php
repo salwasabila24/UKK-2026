@@ -29,11 +29,30 @@ $guru = mysqli_query(
 <h1>Tambah Wali Kelas</h1>
 
 <form action="proses_tambah_wali_kelas.php" method="POST">
+<<<<<<< HEAD
     <table>
+=======
+    <table cellpadding="6">
+        <tr>
+            <td>ID Guru</td>
+            <td>:</td>
+            <td>
+                <input type="number" name="guru_id" min="1" required>
+            </td>
+        </tr>
+        <tr>
+            <td>ID Kelas</td>
+            <td>:</td>
+            <td>
+                <input type="number" name="kelas_id" min="1" required>
+            </td>
+        </tr>
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
         <tr>
             <td>Tahun Ajaran</td>
             <td>:</td>
             <td>
+<<<<<<< HEAD
                 <select name="tahun_ajaran_id" required>
                     <option value="">-- Pilih Tahun Ajaran --</option>
                     <?php while ($row = mysqli_fetch_assoc($tahun)) { ?>
@@ -42,6 +61,10 @@ $guru = mysqli_query(
                         </option>
                     <?php } ?>
                 </select>
+=======
+                <input type="text" name="tahun_ajaran_id"
+                       placeholder="Contoh: 2026/2027" required>
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
             </td>
         </tr>
 

@@ -9,6 +9,7 @@ $hasil = mysqli_query($koneksi, $sql);
 <!DOCTYPE html>
 <html>
     <head>
+<<<<<<< HEAD
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <title>Kelola Siswa - Sistem Pelanggaran Siswa</title></head>
     <body>
@@ -16,6 +17,16 @@ $hasil = mysqli_query($koneksi, $sql);
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <div class="container-fluid">
+=======
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">   
+        <title>Kelola Siswa - Sistem Pelanggaran Siswa</title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <div class="container-fluid">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
     <div class="row">
         <!-- SIDEBAR -->
         <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3">
@@ -24,7 +35,11 @@ $hasil = mysqli_query($koneksi, $sql);
             </h4>
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item mb-2">
+<<<<<<< HEAD
                     <a href="#" class="nav-link text-white">
+=======
+                    <a href="dashboard.php" class="nav-link text-white">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                         Dashboard
                     </a>
                 </li>
@@ -81,7 +96,10 @@ $hasil = mysqli_query($koneksi, $sql);
         <h1>Kelola Siswa</h1>
         <p><a href="dashboard.php">Kembali ke Dashboard</a> | <a href="tambah_siswa.php">Tambah Siswa</a></p>
         <table class="table table-striped">
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
             <tr>
         
                 <th>NIS</th>
@@ -110,10 +128,16 @@ $hasil = mysqli_query($koneksi, $sql);
             </td>
                
                 <td>
+<<<<<<< HEAD
                     <a href="edit_siswa.php?id=<?php echo $row['id']; ?>">
                         <button type="button" class="btn btn-primary">Edit</button></a> |
+=======
+                    <a href="edit_siswa.php?id=<?php echo $row['id']; ?>"></a>
+                    <button type="button" class="btn btn-primary">Edit</button> |
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                     <a href="hapus_siswa.php?id=<?php echo $row['id']; ?>"
-                    onclick="return confirm('Yakin hapus barang ini?');">Hapus</a>
+                    onclick="return confirm('Yakin hapus barang ini?');"></a>
+                    <button class="btn btn-danger">Hapus</button>
                 </td> 
             </tr>
         <?php } ?>

@@ -10,8 +10,12 @@ $hasil = mysqli_query($koneksi, $sql);
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Dashboard</title>
+=======
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
     <title>Kelola Guru</title>
 </head>
 
@@ -82,7 +86,11 @@ $hasil = mysqli_query($koneksi, $sql);
                 Selamat datang di halaman dashboard.
             </p>
             <div class="row">
+<<<<<<< HEAD
 
+=======
+    <h1>Login Pelanggaran Siswa</h1>
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
     <h1>Kelola Guru</h1>
 
     <p>
@@ -91,7 +99,10 @@ $hasil = mysqli_query($koneksi, $sql);
     </p>
 
     <table class="table table-striped">
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
 
         <tr>
             <th>ID</th>
@@ -126,14 +137,23 @@ $hasil = mysqli_query($koneksi, $sql);
 
             <td>
                 <a href="edit_guru.php?id=<?php echo $row['id']; ?>">
+<<<<<<< HEAD
                      <button type="button" class="btn btn-primary">Edit</button>
+=======
+                    <button type="button" class="btn btn-primary">Edit</button>
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                 </a>
 
                 |
 
                 <a href="hapus_guru.php?id=<?php echo $row['id']; ?>"
                    onclick="return confirm('Yakin ingin menghapus data guru ini?');">
+<<<<<<< HEAD
                     <button class="btn btn-danger">Hapus</button>
+=======
+                   <button class="btn btn-danger">Hapus</button>
+                    
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                 </a>
             </td>
 

@@ -17,16 +17,25 @@ $hasil = mysqli_query($koneksi, $sql);
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Kelola Wali Kelas</title>
 </head>
+
 <body>
+<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <div class="container-fluid">
     <div class="row">
+=======
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+     <div class="row">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
         <!-- SIDEBAR -->
         <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3">
             <h4 class="text-white mb-4">
@@ -34,7 +43,11 @@ $hasil = mysqli_query($koneksi, $sql);
             </h4>
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item mb-2">
+<<<<<<< HEAD
                     <a href="#" class="nav-link text-white">
+=======
+                    <a href="dashboard.php" class="nav-link text-white">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                         Dashboard
                     </a>
                 </li>
@@ -44,7 +57,11 @@ $hasil = mysqli_query($koneksi, $sql);
                     </a>
                 </li>
                 <li class="nav-item mb-2">
+<<<<<<< HEAD
                     <a href="kelola_siswa.php" class="nav-link text-white">
+=======
+                    <a href="kelola_siswa.php" class="nav-link  text-white">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                         Kelola Siswa
                     </a>
                 </li>
@@ -88,13 +105,30 @@ $hasil = mysqli_query($koneksi, $sql);
                 Selamat datang di halaman dashboard.
             </p>
             <div class="row">
+<<<<<<< HEAD
 <h1>Kelola Wali Kelas</h1>
+=======
+    <h1>Kelola Wali Kelas</h1>
 
-<p>
-    <a href="dashboard.php">Kembali ke Dashboard</a> |
-    <a href="tambah_wali_kelas.php">Tambah Wali Kelas</a>
-</p>
+    <p>
+        <a href="dashboard.php">Kembali ke Dashboard</a> |
+        <a href="tambah_wali_kelas.php">Tambah Wali Kelas</a>
+    </p>
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
 
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Tahun Ajaran ID</th>
+            <th>Kelas</th>
+            <th>Guru</th>
+            <th>Tanggal Mulai</th>
+            <th>Tanggal Selesai</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+
+<<<<<<< HEAD
  <table class="table table-striped">
 
     <tr>
@@ -133,6 +167,35 @@ $hasil = mysqli_query($koneksi, $sql);
     </tr>
     <?php } ?>
 </table>
+=======
+        <?php while ($row = mysqli_fetch_assoc($hasil)) { ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['tahun_ajaran_id']; ?></td>
+                <td><?php echo htmlspecialchars($row['nama_kelas'] ?? '-'); ?></td>
+                <td><?php echo htmlspecialchars($row['nama_guru'] ?? '-'); ?></td>
+                <td><?php echo $row['tanggal_mulai']; ?></td>
+                <td><?php echo $row['tanggal_selesai']; ?></td>
+                <td>
+                    <?php echo $row['status_aktif'] == 1
+                        ? 'Aktif' : 'Tidak Aktif'; ?>
+                </td>
+                <td>
+                    <a href="edit_wali_kelas.php?id=<?php echo $row['id']; ?>">
+                       <button type="button" class="btn btn-primary">Edit</button>
+                    </a>
+                    |
+                    <a href="hapus_wali_kelas.php?id=<?php echo $row['id']; ?>"
+                        onclick="return confirm('Yakin ingin menghapus data wali kelas ini?');">
+                        <button class="btn btn-danger">Hapus</button>
+                
+                    </a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
 
 </body>
+
 </html>

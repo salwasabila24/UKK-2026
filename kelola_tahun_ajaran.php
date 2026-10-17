@@ -18,8 +18,12 @@ $hasil = mysqli_query($koneksi, $sql);
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<<<<<<< HEAD
     <div class="container-fluid">
     <div class="row">
+=======
+     <div class="row">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
         <!-- SIDEBAR -->
         <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3">
             <h4 class="text-white mb-4">
@@ -27,7 +31,11 @@ $hasil = mysqli_query($koneksi, $sql);
             </h4>
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item mb-2">
+<<<<<<< HEAD
                     <a href="#" class="nav-link text-white">
+=======
+                    <a href="dashboard.php" class="nav-link text-white">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                         Dashboard
                     </a>
                 </li>
@@ -37,7 +45,11 @@ $hasil = mysqli_query($koneksi, $sql);
                     </a>
                 </li>
                 <li class="nav-item mb-2">
+<<<<<<< HEAD
                     <a href="kelola_siswa.php" class="nav-link text-white">
+=======
+                    <a href="kelola_siswa.php" class="nav-link ext-white">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                         Kelola Siswa
                     </a>
                 </li>
@@ -88,8 +100,12 @@ $hasil = mysqli_query($koneksi, $sql);
         <a href="tambah_tahun_ajaran.php">Tambah Tahun Ajaran</a>
     </p>
 
+<<<<<<< HEAD
      <table class="table table-striped">
 
+=======
+    <table class="table table-striped">
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
         <tr>
             <th>ID</th>
             <th>Nama Tahun Ajaran</th>
@@ -136,7 +152,12 @@ $hasil = mysqli_query($koneksi, $sql);
 
                 <a href="hapus_tahun_ajaran.php?id=<?php echo $row['id']; ?>"
                    onclick="return confirm('Yakin ingin menghapus data tahun ajaran ini?');">
+<<<<<<< HEAD
                     <button class="btn btn-danger">Hapus</button>
+=======
+                   <button class="btn btn-danger">Hapus</button>
+                    
+>>>>>>> ae522cf4adc4ed5a4e72b80992dc0618c43cf223
                 </a>
             </td>
 

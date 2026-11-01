@@ -1,4 +1,3 @@
-```php
 <?php
 // tindakan.php
 include 'includes/cek_session.php';
@@ -350,4 +349,3 @@ if (!$hasil) {
 
 </body>
 </html>
-```

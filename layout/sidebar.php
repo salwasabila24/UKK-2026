@@ -1,4 +1,4 @@
-    <?php
+<?php
 $current_page = basename($_SERVER['PHP_SELF']);
 
 if ($_SESSION['role'] === "admin") {

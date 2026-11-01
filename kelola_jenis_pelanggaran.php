@@ -1,4 +1,3 @@
-```php
 <?php
 // kelola_jenis_pelanggaran.php
 include 'includes/cek_session.php';
@@ -224,4 +223,3 @@ $(document).ready(function () {
 
 </body>
 </html>
-```

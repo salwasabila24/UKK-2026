@@ -1,5 +1,7 @@
+
 <?php
 // edit_guru.php
+
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -13,13 +15,18 @@ if ($id <= 0) {
 }
 
 // Ambil data guru
-$stmt = mysqli_prepare($koneksi, "SELECT * FROM t_guru WHERE id = ?");
+$stmt = mysqli_prepare(
+    $koneksi,
+    "SELECT * FROM t_guru WHERE id = ?"
+);
 
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 
 $hasil = mysqli_stmt_get_result($stmt);
 $data = mysqli_fetch_assoc($hasil);
+
+mysqli_stmt_close($stmt);
 
 if (!$data) {
     $_SESSION['pesan_error'] = "Data guru tidak ditemukan.";
@@ -57,7 +64,7 @@ if (!$data) {
                 <h2 class="mb-3">Edit Guru</h2>
 
                 <a href="kelola_guru.php" class="btn btn-secondary">
-                    Kembali ke Kelola Guru
+                    Kembali ke Data Guru
                 </a>
             </div>
 
@@ -94,13 +101,16 @@ if (!$data) {
 
                         <!-- NIP -->
                         <div class="mb-3">
-                            <label for="nip" class="form-label">NIP</label>
+                            <label for="nip" class="form-label">
+                                NIP
+                            </label>
 
                             <input type="text"
                                    class="form-control"
                                    id="nip"
                                    name="nip"
                                    value="<?= htmlspecialchars($data['nip'] ?? ''); ?>"
+                                   placeholder="Masukkan NIP Guru"
                                    required>
                         </div>
 
@@ -115,20 +125,44 @@ if (!$data) {
                                    id="nama"
                                    name="nama"
                                    value="<?= htmlspecialchars($data['nama'] ?? ''); ?>"
+                                   placeholder="Masukkan Nama Guru"
                                    required>
                         </div>
 
                         <!-- Email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="email" class="form-label">
+                                Email
+                            </label>
 
                             <input type="email"
                                    class="form-control"
                                    id="email"
                                    name="email"
                                    value="<?= htmlspecialchars($data['email'] ?? ''); ?>"
+                                   placeholder="Masukkan Email Guru"
                                    required>
                         </div>
+
+                        <!-- Password -->
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password"
+                               class="form-control"
+                               placeholder="Masukkan Password"
+                               minlength="6"
+                               required>
+                    </div>
+
+                    <!-- Konfirmasi Password -->
+                    <div class="mb-3">
+                        <label class="form-label">Konfirmasi Password</label>
+                        <input type="password" name="konfirmasi_password"
+                               class="form-control"
+                               placeholder="Ulangi Password"
+                               minlength="6"
+                               required>
+                    </div>
 
                         <!-- Status Aktif -->
                         <div class="mb-3">
@@ -154,32 +188,14 @@ if (!$data) {
                             </select>
                         </div>
 
-                        <!-- User ID -->
-                        <div class="mb-3">
-                            <label for="user_id" class="form-label">
-                                User ID
-                            </label>
-
-                            <input type="number"
-                                   class="form-control"
-                                   id="user_id"
-                                   name="user_id"
-                                   min="1"
-                                   value="<?= htmlspecialchars((string) ($data['user_id'] ?? '')); ?>"
-                                   placeholder="Masukkan User ID jika tersedia">
-
-                            <div class="form-text">
-                                Kosongkan jika guru tidak dikaitkan dengan akun pengguna.
-                            </div>
-                        </div>
-
                         <!-- Tombol -->
                         <div class="d-flex gap-2">
                             <button type="submit" class="btn btn-primary">
                                 Update Guru
                             </button>
 
-                            <a href="kelola_guru.php" class="btn btn-secondary">
+                            <a href="kelola_guru.php"
+                               class="btn btn-secondary">
                                 Batal
                             </a>
                         </div>

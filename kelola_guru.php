@@ -1,3 +1,4 @@
+
 <?php
 // kelola_guru.php
 include 'includes/cek_session.php';
@@ -58,8 +59,6 @@ $hasil = mysqli_query($koneksi, $sql);
         }
 
         .table thead th {
-            background-color: #e7f1ff;
-            color: #24476b;
             white-space: nowrap;
             vertical-align: middle;
             font-size: 14px;
@@ -174,11 +173,12 @@ $hasil = mysqli_query($koneksi, $sql);
             <!-- CARD TABEL -->
             <div class="content-card">
 
-                <div class="mb-3">
-                    <h5 class="fw-bold mb-0" style="color: #243b53;">
+                <!-- HEADER DATA GURU -->
+                <div class="bg-primary text-white rounded-top p-3 mb-3">
+                    <h5 class="fw-bold text-white mb-1">
                         Data Guru
                     </h5>
-                    <small class="text-muted">
+                    <small class="text-white">
                         Daftar guru yang tersimpan dalam sistem.
                     </small>
                 </div>
@@ -188,7 +188,7 @@ $hasil = mysqli_query($koneksi, $sql);
                     <table id="tabelGuru"
                            class="table table-bordered table-hover align-middle w-100">
 
-                        <thead>
+                        <thead class="table-dark">
                             <tr>
                                 <th>ID</th>
                                 <th>NIP</th>

@@ -1,3 +1,4 @@
+
 <?php
 // rekap_poin.php
 
@@ -139,8 +140,6 @@ $jumlah_siswa = count($data_rekap);
         }
 
         .card-header {
-            background-color: #e8f1fb;
-            color: #2c4968;
             padding: 14px 18px;
             border-bottom: 1px solid #dce6f1;
         }
@@ -191,12 +190,6 @@ $jumlah_siswa = count($data_rekap);
             vertical-align: middle;
         }
 
-        #tabelRekap thead th {
-            background-color: #e8f1fb;
-            color: #2c4968;
-            white-space: nowrap;
-        }
-
         #tabelRekap td,
         #tabelRekap th {
             padding: 11px;
@@ -236,8 +229,8 @@ $jumlah_siswa = count($data_rekap);
             }
 
             .card-header {
-                background: #e8f1fb !important;
-                color: #2c4968 !important;
+                background: #212529 !important;
+                color: #fff !important;
                 print-color-adjust: exact;
             }
 
@@ -270,14 +263,17 @@ $jumlah_siswa = count($data_rekap);
             <!-- Judul halaman -->
             <div class="d-flex justify-content-between align-items-center
                         flex-wrap gap-2 mb-4">
+
                 <div>
                     <h2>Rekap Poin Pelanggaran Siswa</h2>
+
                     <p class="page-description mb-0">
                         Ringkasan jumlah pelanggaran dan poin setiap siswa.
                     </p>
                 </div>
 
                 <div class="d-flex gap-2 no-print">
+
                     <a href="dashboard.php" class="btn btn-outline-primary">
                         Kembali
                     </a>
@@ -286,6 +282,7 @@ $jumlah_siswa = count($data_rekap);
                             class="btn btn-success">
                         Cetak Rekap
                     </button>
+
                 </div>
             </div>
 
@@ -295,10 +292,15 @@ $jumlah_siswa = count($data_rekap);
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <p class="text-muted mb-2">Jumlah Siswa</p>
+
+                            <p class="text-muted mb-2">
+                                Jumlah Siswa
+                            </p>
+
                             <div class="angka">
                                 <?= $jumlah_siswa; ?>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -306,10 +308,15 @@ $jumlah_siswa = count($data_rekap);
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <p class="text-muted mb-2">Total Poin</p>
+
+                            <p class="text-muted mb-2">
+                                Total Poin
+                            </p>
+
                             <div class="angka">
                                 <?= $total_poin_semua; ?>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -317,12 +324,15 @@ $jumlah_siswa = count($data_rekap);
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
+
                             <p class="text-muted mb-2">
                                 Jumlah Catatan Pelanggaran
                             </p>
+
                             <div class="angka">
                                 <?= $total_catatan; ?>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -331,15 +341,21 @@ $jumlah_siswa = count($data_rekap);
 
             <!-- Pencarian dan filter -->
             <div class="card no-print">
-                <div class="card-header">
-                    <h5>Pencarian dan Filter Siswa</h5>
+
+                <div class="card-header bg-primary text-white">
+                    <h5 class="text-white mb-0">
+                        Pencarian dan Filter Siswa
+                    </h5>
                 </div>
 
                 <div class="card-body">
+
                     <form method="GET" action="rekap_poin.php">
+
                         <div class="row g-3">
 
                             <div class="col-md-5">
+
                                 <label for="cari" class="form-label">
                                     Cari Siswa
                                 </label>
@@ -351,28 +367,38 @@ $jumlah_siswa = count($data_rekap);
                                     class="form-control"
                                     placeholder="Masukkan nama atau NIS siswa"
                                     value="<?= htmlspecialchars($cari); ?>">
+
                             </div>
 
                             <div class="col-md-4">
+
                                 <label for="kelas" class="form-label">
                                     Filter Kelas
                                 </label>
 
                                 <select name="kelas" id="kelas"
                                         class="form-select">
+
                                     <option value="">Semua Kelas</option>
 
                                     <?php foreach ($data_kelas as $kelas) { ?>
+
                                         <option
                                             value="<?= (int) $kelas['id']; ?>"
                                             <?= $kelas_filter == $kelas['id'] ? 'selected' : ''; ?>>
+
                                             <?= htmlspecialchars($kelas['nama']); ?>
+
                                         </option>
+
                                     <?php } ?>
+
                                 </select>
+
                             </div>
 
                             <div class="col-md-3 d-flex align-items-end gap-2">
+
                                 <button type="submit" class="btn btn-primary">
                                     Cari
                                 </button>
@@ -381,26 +407,34 @@ $jumlah_siswa = count($data_rekap);
                                    class="btn btn-secondary">
                                     Reset
                                 </a>
+
                             </div>
 
                         </div>
+
                     </form>
+
                 </div>
             </div>
 
             <!-- Tabel rekap -->
             <div class="card">
-                <div class="card-header">
-                    <h5>Data Rekap Poin Siswa</h5>
+
+                <div class="card-header bg-primary text-white">
+                    <h5 class="text-white mb-0">
+                        Data Rekap Poin Siswa
+                    </h5>
                 </div>
 
                 <div class="card-body">
+
                     <div class="table-responsive">
 
                         <table id="tabelRekap"
                                class="table table-bordered table-striped table-hover align-middle">
 
-                            <thead>
+                            <!-- Header tabel hitam -->
+                            <thead class="table-dark">
                                 <tr>
                                     <th>No</th>
                                     <th>NIS</th>
@@ -412,7 +446,9 @@ $jumlah_siswa = count($data_rekap);
                             </thead>
 
                             <tbody>
+
                                 <?php foreach ($data_rekap as $data) { ?>
+
                                     <tr>
                                         <td></td>
 
@@ -438,7 +474,9 @@ $jumlah_siswa = count($data_rekap);
                                             </span>
                                         </td>
                                     </tr>
+
                                 <?php } ?>
+
                             </tbody>
 
                         </table>
@@ -449,6 +487,7 @@ $jumlah_siswa = count($data_rekap);
                         Total poin dihitung berdasarkan catatan pada
                         tabel t_pelanggaran_siswa.
                     </p>
+
                 </div>
             </div>
 
@@ -468,11 +507,17 @@ $jumlah_siswa = count($data_rekap);
 
 <script>
 $(document).ready(function () {
+
     $('#tabelRekap').DataTable({
+
         pageLength: 10,
+
         lengthMenu: [5, 10, 25, 50, 100],
+
         searching: true,
+
         ordering: true,
+
         paging: true,
 
         order: [[5, 'desc'], [2, 'asc']],
@@ -486,6 +531,7 @@ $(document).ready(function () {
         ],
 
         drawCallback: function () {
+
             var api = this.api();
             var nomorAwal = api.page.info().start;
 
@@ -493,26 +539,40 @@ $(document).ready(function () {
                 search: 'applied',
                 order: 'applied'
             }).nodes().each(function (cell, i) {
+
                 cell.innerHTML = nomorAwal + i + 1;
+
             });
+
         },
 
         language: {
+
             search: "Cari:",
+
             lengthMenu: "Tampilkan _MENU_ data",
+
             info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+
             infoEmpty: "Tidak ada data rekap",
+
             infoFiltered: "(difilter dari _MAX_ data)",
+
             zeroRecords: "Data siswa tidak ditemukan",
+
             emptyTable: "Belum ada data rekap poin siswa",
+
             paginate: {
                 first: "Pertama",
                 last: "Terakhir",
                 next: "Berikutnya",
                 previous: "Sebelumnya"
             }
+
         }
+
     });
+
 });
 </script>
 

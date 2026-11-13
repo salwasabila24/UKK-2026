@@ -10,7 +10,7 @@ $sql = "SELECT
             w.id,
             w.kelas_id,
             k.nama AS nama_kelas
-        FROM t_walikelas w
+        FROM t_wali_kelas w
         LEFT JOIN t_kelas k ON w.kelas_id = k.id
         WHERE w.id = ?";
 

@@ -41,7 +41,7 @@ if (!$kategori) {
 
             <!-- Judul dan Tombol Kembali -->
             <div class="mb-4">
-                <h2 class="mb-3">Tambah Jenis Pelanggaran</h2>
+                <h2 class="mb-3">Edit Jenis Pelanggaran</h2>
 
                 <a href="kelola_jenis_pelanggaran.php"
                    class="btn btn-secondary">
@@ -65,11 +65,11 @@ if (!$kategori) {
                 <?php unset($_SESSION['pesan_error']); ?>
             <?php endif; ?>
 
-            <!-- Form Tambah Jenis Pelanggaran -->
+            <!-- Form Edit Jenis Pelanggaran -->
             <div class="card shadow-sm">
 
                 <div class="card-header bg-primary text-white">
-                    Form Tambah Jenis Pelanggaran
+                    Form Edit Jenis Pelanggaran
                 </div>
 
                 <div class="card-body">

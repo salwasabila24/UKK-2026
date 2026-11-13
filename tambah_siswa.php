@@ -142,7 +142,7 @@ include 'includes/cek_session.php';
             <button type="submit" class="btn btn-primary">
                 Simpan
             </button>
-            <a href="kelola_guru.php" class="btn btn-secondary">
+            <a href="kelola_siswa.php" class="btn btn-secondary">
                     Batal
             </a>
 

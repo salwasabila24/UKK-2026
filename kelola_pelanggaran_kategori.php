@@ -55,21 +55,13 @@ $hasil = mysqli_query($koneksi, $sql);
             border: 1px solid #e8eef5;
         }
 
-        .table thead th {
-            background-color: #e7f1ff;
-            color: #24476b;
-            white-space: nowrap;
-            font-size: 14px;
-            vertical-align: middle;
-        }
-
         .table tbody td {
             vertical-align: middle;
             font-size: 14px;
         }
 
-        .table tbody tr:hover td {
-            background-color: #f8fbff;
+        .table {
+            margin-top: 15px !important;
         }
 
         .badge-status {
@@ -162,7 +154,7 @@ $hasil = mysqli_query($koneksi, $sql);
                 </div>
 
                 <div class="d-flex gap-2 flex-wrap">
-                    <a href="dashboard.php" class="btn btn-outline-secondary">
+                    <a href="dashboard.php" class="btn btn-secondary">
                         Kembali ke Dashboard
                     </a>
 
@@ -174,20 +166,24 @@ $hasil = mysqli_query($koneksi, $sql);
 
             </div>
 
+            <!-- DATA KATEGORI PELANGGARAN -->
             <div class="content-card">
 
                 <div class="d-flex justify-content-between
                             align-items-center mb-3">
+
                     <h5 class="fw-bold mb-0" style="color: #243b53;">
                         Data Kategori Pelanggaran
                     </h5>
+
                 </div>
 
                 <div class="table-responsive">
-                    <table id="tabelKategori"
-                           class="table table-bordered table-hover align-middle w-100">
 
-                        <thead>
+                    <table id="tabelKategori"
+                           class="table table-striped table-bordered table-hover align-middle w-100">
+
+                        <thead class="table-dark">
                             <tr>
                                 <th>ID</th>
                                 <th>Nama Kategori</th>
@@ -200,10 +196,13 @@ $hasil = mysqli_query($koneksi, $sql);
                         </thead>
 
                         <tbody>
+
                             <?php if ($hasil && mysqli_num_rows($hasil) > 0) { ?>
+
                                 <?php while ($row = mysqli_fetch_assoc($hasil)) { ?>
 
                                     <tr>
+
                                         <td>
                                             <?php echo (int) $row['id']; ?>
                                         </td>
@@ -230,13 +229,17 @@ $hasil = mysqli_query($koneksi, $sql);
 
                                         <td>
                                             <?php if ((int) $row['status_aktif'] === 1) { ?>
-                                                <span class="badge-status status-aktif">
+
+                                                <span class="badge bg-success">
                                                     Aktif
                                                 </span>
+
                                             <?php } else { ?>
-                                                <span class="badge-status status-nonaktif">
+
+                                                <span class="badge bg-secondary">
                                                     Tidak Aktif
                                                 </span>
+
                                             <?php } ?>
                                         </td>
 
@@ -262,6 +265,7 @@ $hasil = mysqli_query($koneksi, $sql);
 
                                         <td>
                                             <div class="action-buttons">
+
                                                 <a
                                                     href="edit_pelanggaran_kategori.php?id=<?php echo (int) $row['id']; ?>"
                                                     class="btn btn-warning btn-sm">
@@ -274,15 +278,20 @@ $hasil = mysqli_query($koneksi, $sql);
                                                     onclick="return confirm('Yakin ingin menghapus kategori pelanggaran ini?');">
                                                     Hapus
                                                 </a>
+
                                             </div>
                                         </td>
+
                                     </tr>
 
                                 <?php } ?>
+
                             <?php } ?>
+
                         </tbody>
 
                     </table>
+
                 </div>
 
             </div>
@@ -301,15 +310,22 @@ $hasil = mysqli_query($koneksi, $sql);
 <script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.min.js"></script>
 
+<!-- Konfigurasi DataTables -->
 <script>
 $(document).ready(function () {
+
     $('#tabelKategori').DataTable({
+
+        // Jumlah data awal
         pageLength: 10,
 
+        // Pilihan jumlah data
         lengthMenu: [5, 10, 25, 50, 100],
 
+        // Urutkan berdasarkan ID terbaru
         order: [[0, 'desc']],
 
+        // Kolom aksi tidak bisa diurutkan atau dicari
         columnDefs: [
             {
                 targets: 6,
@@ -318,14 +334,21 @@ $(document).ready(function () {
             }
         ],
 
+        // Bahasa Indonesia
         language: {
             search: 'Cari:',
             searchPlaceholder: 'Cari kategori pelanggaran...',
+
             lengthMenu: 'Tampilkan _MENU_ data',
+
             info: 'Menampilkan _START_ sampai _END_ dari _TOTAL_ data kategori',
+
             infoEmpty: 'Menampilkan 0 sampai 0 dari 0 data kategori',
+
             infoFiltered: '(difilter dari _MAX_ total data)',
+
             zeroRecords: 'Kategori pelanggaran tidak ditemukan',
+
             emptyTable: 'Belum ada data kategori pelanggaran',
 
             paginate: {
@@ -335,7 +358,9 @@ $(document).ready(function () {
                 previous: 'Sebelumnya'
             }
         }
+
     });
+
 });
 </script>
 

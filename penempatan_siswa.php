@@ -111,13 +111,6 @@ $hasil = mysqli_query($koneksi, $sql);
             box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.12);
         }
 
-        .table thead th {
-            background-color: #e7f1ff;
-            color: #24476b;
-            white-space: nowrap;
-            vertical-align: middle;
-        }
-
         .table tbody td {
             vertical-align: middle;
         }
@@ -128,26 +121,6 @@ $hasil = mysqli_query($koneksi, $sql);
 
         .btn {
             border-radius: 7px;
-        }
-
-        .status-aktif {
-            background-color: #d1fae5;
-            color: #047857;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .status-nonaktif {
-            background-color: #e5e7eb;
-            color: #4b5563;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            white-space: nowrap;
         }
 
         .table-responsive {
@@ -186,7 +159,7 @@ $hasil = mysqli_query($koneksi, $sql);
             <!-- KEMBALI KE DASHBOARD -->
             <div class="mb-3">
                 <a href="dashboard.php"
-                   class="btn btn-outline-secondary btn-sm">
+                   class="btn btn-secondary btn-sm">
                     &larr; Kembali ke Dashboard
                 </a>
             </div>
@@ -407,7 +380,7 @@ $hasil = mysqli_query($koneksi, $sql);
                     <table id="tabelPenempatan"
                            class="table table-striped table-bordered table-hover align-middle w-100">
 
-                        <thead>
+                        <thead class="table-dark">
                             <tr>
                                 <th>No</th>
                                 <th>NIS</th>
@@ -469,13 +442,13 @@ $hasil = mysqli_query($koneksi, $sql);
                                     <td>
                                         <?php if ($row['status_aktif'] == 1) { ?>
 
-                                            <span class="status-aktif">
+                                            <span class="badge bg-success">
                                                 Aktif
                                             </span>
 
                                         <?php } else { ?>
 
-                                            <span class="status-nonaktif">
+                                            <span class="badge bg-secondary">
                                                 Tidak Aktif
                                             </span>
 

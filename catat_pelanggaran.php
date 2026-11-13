@@ -450,7 +450,7 @@ $hasil = mysqli_query($koneksi, $sql);
             <!-- TABEL DATA PELANGGARAN -->
             <div class="card">
 
-                <div class="card-header">
+                <div class="card-header bg-primary text-light">
                     Data Catatan Pelanggaran
                 </div>
 

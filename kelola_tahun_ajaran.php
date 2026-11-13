@@ -43,13 +43,6 @@ $hasil = mysqli_query($koneksi, $sql);
             color: #243b53;
         }
 
-        .table thead th {
-            background-color: #e7f1ff;
-            color: #24476b;
-            white-space: nowrap;
-            vertical-align: middle;
-        }
-
         .table tbody td {
             vertical-align: middle;
         }
@@ -60,30 +53,6 @@ $hasil = mysqli_query($koneksi, $sql);
 
         .btn {
             border-radius: 7px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .status-aktif {
-            background-color: #d1fae5;
-            color: #047857;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .status-nonaktif {
-            background-color: #e5e7eb;
-            color: #4b5563;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
         }
 
         .table-responsive {
@@ -128,7 +97,7 @@ $hasil = mysqli_query($koneksi, $sql);
                 <!-- KEMBALI KE DASHBOARD -->
                 <div class="mb-3">
                     <a href="dashboard.php"
-                       class="btn btn-outline-secondary btn-sm">
+                       class="btn btn-secondary btn-sm">
                         &larr; Kembali ke Dashboard
                     </a>
                 </div>
@@ -139,7 +108,7 @@ $hasil = mysqli_query($koneksi, $sql);
                     <table id="tabelTahunAjaran"
                            class="table table-striped table-bordered table-hover align-middle w-100">
 
-                        <thead>
+                        <thead class="table-dark">
                             <tr>
                                 <th>ID</th>
                                 <th>Nama Tahun Ajaran</th>
@@ -177,13 +146,13 @@ $hasil = mysqli_query($koneksi, $sql);
                                 <td>
                                     <?php if ($row['status_aktif'] == 1) { ?>
 
-                                        <span class="status-aktif">
+                                        <span class="badge bg-success">
                                             Aktif
                                         </span>
 
                                     <?php } else { ?>
 
-                                        <span class="status-nonaktif">
+                                        <span class="badge bg-secondary">
                                             Tidak Aktif
                                         </span>
 
@@ -199,7 +168,7 @@ $hasil = mysqli_query($koneksi, $sql);
                                 </td>
 
                                 <td>
-                                    <div class="action-buttons">
+                                    <div class="d-flex gap-2">
 
                                         <a href="edit_tahun_ajaran.php?id=<?php
                                             echo urlencode($row['id']);

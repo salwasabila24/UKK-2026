@@ -1,11 +1,13 @@
 <?php
 // catat_pelanggaran.php
+
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
 // ==========================================
 // DAFTAR SISWA AKTIF
 // ==========================================
+
 $siswa = mysqli_query(
     $koneksi,
     "SELECT id, nis, nama
@@ -17,6 +19,7 @@ $siswa = mysqli_query(
 // ==========================================
 // TAHUN AJARAN AKTIF
 // ==========================================
+
 $tahun = mysqli_query(
     $koneksi,
     "SELECT id, nama
@@ -30,6 +33,7 @@ $tahun_aktif = mysqli_fetch_assoc($tahun);
 // ==========================================
 // DAFTAR PENEMPATAN KELAS SISWA
 // ==========================================
+
 $daftar_penempatan = [];
 
 if ($tahun_aktif) {
@@ -70,13 +74,13 @@ if ($tahun_aktif) {
             'tingkat' => $data['tingkat'],
             'jurusan' => $data['jurusan']
         ];
-
     }
 }
 
 // ==========================================
 // DAFTAR JENIS PELANGGARAN
 // ==========================================
+
 $pelanggaran = mysqli_query(
     $koneksi,
     "SELECT id, nama, poin, pelanggaran_kategori_id
@@ -88,6 +92,7 @@ $pelanggaran = mysqli_query(
 // ==========================================
 // GURU YANG SEDANG LOGIN
 // ==========================================
+
 $id_user = (int) $_SESSION['id'];
 
 $stmt_guru = mysqli_prepare(
@@ -116,6 +121,7 @@ $guru_id_login = $data_guru['id'] ?? 0;
 // ==========================================
 // DATA CATATAN PELANGGARAN
 // ==========================================
+
 $sql = "SELECT
             ps.*,
             ta.nama AS tahun_ajaran,
@@ -123,24 +129,17 @@ $sql = "SELECT
             k.nama AS nama_kelas,
             p.nama AS nama_pelanggaran,
             g.nama AS nama_guru
-
         FROM t_pelanggaran_siswa ps
-
         LEFT JOIN t_tahun_ajaran ta
             ON ps.tahun_ajaran_id = ta.id
-
         LEFT JOIN t_siswa s
             ON ps.siswa_id = s.id
-
         LEFT JOIN t_kelas k
             ON ps.kelas_id = k.id
-
         LEFT JOIN t_pelanggaran p
             ON ps.pelanggaran_id = p.id
-
         LEFT JOIN t_guru g
             ON ps.guru_id = g.id
-
         ORDER BY ps.id DESC";
 
 $hasil = mysqli_query($koneksi, $sql);
@@ -151,9 +150,7 @@ $hasil = mysqli_query($koneksi, $sql);
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Catat Pelanggaran Siswa</title>
@@ -169,13 +166,11 @@ $hasil = mysqli_query($koneksi, $sql);
     <!-- DATATABLES BOOTSTRAP 5 -->
     <link href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.min.css"
           rel="stylesheet">
-
 </head>
 
 <body>
 
 <div class="container-fluid">
-
     <div class="row">
 
         <?php include 'layout/sidebar.php'; ?>
@@ -368,18 +363,25 @@ $hasil = mysqli_query($koneksi, $sql);
 
                             </div>
 
-                            <!-- TANGGAL -->
+                            <!-- TANGGAL OTOMATIS -->
                             <div class="col-md-6 mb-3">
 
                                 <label class="form-label">
                                     Tanggal
                                 </label>
 
-                                <input type="date"
-                                       name="tanggal"
+                                <input type="text"
                                        class="form-control"
-                                       value="<?= date('Y-m-d'); ?>"
-                                       required>
+                                       value="<?= date('d-m-Y'); ?>"
+                                       readonly>
+
+                                <input type="hidden"
+                                       name="tanggal"
+                                       value="<?= date('Y-m-d'); ?>">
+
+                                <small class="text-muted">
+                                    Tanggal tercatat otomatis sesuai hari ini.
+                                </small>
 
                             </div>
 
@@ -458,14 +460,11 @@ $hasil = mysqli_query($koneksi, $sql);
 
                     <div class="table-responsive">
 
-                        <!-- ID DATATABLES DITAMBAHKAN -->
                         <table id="tabelPelanggaran"
                                class="table table-bordered table-striped">
 
                             <thead class="table-dark">
-
                                 <tr>
-
                                     <th>No</th>
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
@@ -475,9 +474,7 @@ $hasil = mysqli_query($koneksi, $sql);
                                     <th>Tanggal</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
-
                                 </tr>
-
                             </thead>
 
                             <tbody>
@@ -590,9 +587,7 @@ $hasil = mysqli_query($koneksi, $sql);
         </main>
 
     </div>
-
 </div>
-
 
 <!-- JQUERY -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -608,21 +603,21 @@ $hasil = mysqli_query($koneksi, $sql);
 
 <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.min.js"></script>
 
-
 <script>
 
 // ==========================================
 // DATA PENEMPATAN SISWA DARI PHP
 // ==========================================
+
 const dataPenempatan = <?= json_encode(
     $daftar_penempatan,
     JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP
 ); ?>;
 
-
 // ==========================================
 // PENCARIAN SISWA DAN KELAS OTOMATIS
 // ==========================================
+
 const pilihanSiswa = new TomSelect("#siswa", {
 
     create: false,
@@ -661,11 +656,11 @@ const pilihanSiswa = new TomSelect("#siswa", {
 
 });
 
-
 // ==========================================
 // PENCARIAN JENIS PELANGGARAN
 // DAN POIN OTOMATIS
 // ==========================================
+
 const pilihanPelanggaran = new TomSelect("#pelanggaran", {
 
     create: false,
@@ -688,10 +683,10 @@ const pilihanPelanggaran = new TomSelect("#pelanggaran", {
 
 });
 
-
 // ==========================================
 // VALIDASI SEBELUM SIMPAN
 // ==========================================
+
 document.getElementById('formPelanggaran')
 .addEventListener('submit', function(e) {
 
@@ -712,10 +707,10 @@ document.getElementById('formPelanggaran')
 
 });
 
-
 // ==========================================
 // DATATABLES
 // ==========================================
+
 $(document).ready(function () {
 
     $('#tabelPelanggaran').DataTable({

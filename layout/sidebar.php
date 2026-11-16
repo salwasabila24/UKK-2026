@@ -3,16 +3,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 if ($_SESSION['role'] === "admin") {
 ?>
+
     <!-- SIDEBAR ADMIN -->
-    <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3 sticky-md-top align-self-start">
-        <h4 class="text-white fw-bold lh-sm mb-4 px-3 py-3 rounded-3 bg-black bg-opacity-25 border-start border-4 border-info shadow d-flex align-items-center gap-2">
-            <i class="bi bi-shield-lock-fill text-info"></i>
+    <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3 no-print">
+
+        <h4 class="text-white mb-4">
             Pelanggaran Siswa
         </h4>
-
-        <head>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-        </head>
 
         <ul class="nav nav-pills flex-column">
 
@@ -60,7 +57,7 @@ if ($_SESSION['role'] === "admin") {
 
             <li class="nav-item mb-2">
                 <a href="penempatan_siswa.php"
-                   class="nav-link <?= in_array($current_page, ['penempatan_siswa.php','edit_penempatan_siswa.php','tambah_penempatan_siswa.php','hapus_penempatan_siswa.php']) ? 'active' : 'text-white' ?>">
+                   class="nav-link <?= ($current_page == 'penempatan_siswa.php') ? 'active' : 'text-white' ?>">
                     Penempatan Siswa
                 </a>
             </li>
@@ -81,7 +78,7 @@ if ($_SESSION['role'] === "admin") {
 
             <li class="nav-item mb-2">
                 <a href="laporan.php"
-                   class="nav-link <?= in_array($current_page, ['laporan.php','editlaporan.php','tambah_laporan.php','hapus_laporan.php.php']) ? 'active' : 'text-white' ?>">
+                   class="nav-link <?= ($current_page == 'laporan.php') ? 'active' : 'text-white' ?>">
                     Laporan
                 </a>
             </li>
@@ -105,81 +102,13 @@ if ($_SESSION['role'] === "admin") {
     </div>
 
 <?php
-} elseif (
-    $_SESSION['role'] === "guru" &&
-    isset($_SESSION['is_wali_kelas']) &&
-    $_SESSION['is_wali_kelas'] == 1
-) {
-?>
-
-    <!-- SIDEBAR WALI KELAS -->
-    <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3 sticky-md-top align-self-start">
-        <h4 class="text-white fw-bold lh-sm mb-4 px-3 py-3 rounded-3 bg-black bg-opacity-25 border-start border-4 border-info shadow">
-            Pelanggaran Siswa
-        </h4>
-
-        <ul class="nav nav-pills flex-column">
-
-            <li class="nav-item mb-2">
-                <a href="dashboard.php"
-                   class="nav-link <?= ($current_page == 'dashboard.php') ? 'active' : 'text-white' ?>">
-                    Dashboard
-                </a>
-            </li>
-
-            <li class="nav-item mb-2">
-                <a href="catat_pelanggaran.php"
-                   class="nav-link <?= in_array($current_page, ['catat_pelanggaran.php','edit_catat_pelanggaran.php']) ? 'active' : 'text-white' ?>">
-                    Catat Pelanggaran
-                </a>
-            </li>
-
-            <li class="nav-item mb-2">
-                <a href="tindakan.php"
-                   class="nav-link <?= ($current_page == 'tindakan.php') ? 'active' : 'text-white' ?>">
-                    Tindakan
-                </a>
-            </li>
-
-            <li class="nav-item mb-2">
-                <a href="riwayat.php"
-                   class="nav-link <?= ($current_page == 'riwayat.php') ? 'active' : 'text-white' ?>">
-                    Riwayat
-                </a>
-            </li>
-
-            <li class="nav-item mb-2">
-                <a href="rekap_poin.php"
-                   class="nav-link <?= ($current_page == 'rekap_poin.php') ? 'active' : 'text-white' ?>">
-                    Rekap Poin
-                </a>
-            </li>
-
-            <li class="nav-item mb-2">
-                <a href="laporan.php"
-                   class="nav-link <?= ($current_page == 'laporan.php') ? 'active' : 'text-white' ?>">
-                    Laporan
-                </a>
-            </li>
-
-            <hr class="text-secondary">
-
-            <li class="nav-item">
-                <a href="logout.php" class="nav-link text-danger">
-                    Logout
-                </a>
-            </li>
-
-        </ul>
-    </div>
-
-<?php
 } elseif ($_SESSION['role'] === "guru") {
 ?>
 
     <!-- SIDEBAR GURU -->
-    <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3 sticky-md-top align-self-start">
-        <h4 class="text-white fw-bold lh-sm mb-4 px-3 py-3 rounded-3 bg-black bg-opacity-25 border-start border-4 border-info shadow">
+    <div class="col-md-3 col-lg-2 bg-dark min-vh-100 p-3 no-print">
+
+        <h4 class="text-white mb-4">
             Pelanggaran Siswa
         </h4>
 
